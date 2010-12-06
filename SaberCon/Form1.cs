@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
@@ -107,7 +108,7 @@ namespace SaberCon
         {
           PaintIcon(g);
         }
-        bmp.Save(dlg.FileName);
+        bmp.Save(dlg.FileName, ImageFormat.Bmp);
       }
     }
 

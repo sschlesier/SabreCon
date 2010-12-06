@@ -29,7 +29,7 @@
     private void InitializeComponent()
     {
       this.label1 = new System.Windows.Forms.Label();
-      this.TextBox = new System.Windows.Forms.TextBox();
+      this.IconText = new System.Windows.Forms.TextBox();
       this.label3 = new System.Windows.Forms.Label();
       this.Fonts = new System.Windows.Forms.ComboBox();
       this.label2 = new System.Windows.Forms.Label();
@@ -50,13 +50,13 @@
       // 
       // TextBox
       // 
-      this.TextBox.Location = new System.Drawing.Point(16, 29);
-      this.TextBox.Multiline = true;
-      this.TextBox.Name = "TextBox";
-      this.TextBox.Size = new System.Drawing.Size(188, 63);
-      this.TextBox.TabIndex = 1;
-      this.TextBox.Text = "Text\r\ngoes\r\nhere";
-      this.TextBox.TextChanged += new System.EventHandler(this.SpecChange);
+      this.IconText.Location = new System.Drawing.Point(16, 29);
+      this.IconText.Multiline = true;
+      this.IconText.Name = "IconText";
+      this.IconText.Size = new System.Drawing.Size(188, 63);
+      this.IconText.TabIndex = 1;
+      this.IconText.Text = "Text\r\ngoes\r\nhere";
+      this.IconText.TextChanged += new System.EventHandler(this.SpecChange);
       // 
       // label3
       // 
@@ -134,7 +134,7 @@
       this.Controls.Add(this.label2);
       this.Controls.Add(this.Fonts);
       this.Controls.Add(this.label3);
-      this.Controls.Add(this.TextBox);
+      this.Controls.Add(this.IconText);
       this.Controls.Add(this.label1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
       this.Name = "Form1";
@@ -148,7 +148,7 @@
     #endregion
 
     private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.TextBox TextBox;
+    private System.Windows.Forms.TextBox IconText;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.ComboBox Fonts;
     private System.Windows.Forms.Label label2;

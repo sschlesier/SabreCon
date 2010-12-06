@@ -40,7 +40,7 @@ namespace SaberCon
 
       using (var font = new Font((FontFamily)Fonts.SelectedItem, (int) Size.Value, IsBold.Checked ? FontStyle.Bold : FontStyle.Regular))
       {
-        var output = from l in TextBox.Text.Split(SplitStrings, StringSplitOptions.None)
+        var output = from l in IconText.Text.Split(SplitStrings, StringSplitOptions.None)
                      select new { Text = SpaceForEmpty(l), Size = AdjustHeight(e.Graphics.MeasureString(SpaceForEmpty(l), font), -4) };
 
         var totalHeight = (output.Select(i => i.Size.Height)).Sum();

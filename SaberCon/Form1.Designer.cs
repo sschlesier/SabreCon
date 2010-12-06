@@ -51,10 +51,11 @@
       // TextBox
       // 
       this.TextBox.Location = new System.Drawing.Point(16, 29);
+      this.TextBox.Multiline = true;
       this.TextBox.Name = "TextBox";
-      this.TextBox.Size = new System.Drawing.Size(188, 20);
+      this.TextBox.Size = new System.Drawing.Size(188, 63);
       this.TextBox.TabIndex = 1;
-      this.TextBox.Text = "Text goes here";
+      this.TextBox.Text = "Text\r\ngoes\r\nhere";
       this.TextBox.TextChanged += new System.EventHandler(this.SpecChange);
       // 
       // label3
@@ -105,7 +106,7 @@
       // 
       // Icon
       // 
-      this.Icon.Location = new System.Drawing.Point(60, 56);
+      this.Icon.Location = new System.Drawing.Point(60, 98);
       this.Icon.Name = "Icon";
       this.Icon.Size = new System.Drawing.Size(64, 64);
       this.Icon.TabIndex = 6;
@@ -126,7 +127,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(399, 128);
+      this.ClientSize = new System.Drawing.Size(399, 170);
       this.Controls.Add(this.IsBold);
       this.Controls.Add(this.Icon);
       this.Controls.Add(this.Size);

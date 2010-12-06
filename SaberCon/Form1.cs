@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SaberCon
 {
@@ -31,22 +33,42 @@ namespace SaberCon
       Fonts.SelectedIndex = index;
     }
 
+    static readonly String[] SplitStrings = new[] { Environment.NewLine };
     private void PaintIcon(object sender, PaintEventArgs e)
     {
       e.Graphics.FillRectangle(Brushes.Black, 0, 0, 64, 64);
 
       using (var font = new Font((FontFamily)Fonts.SelectedItem, (int) Size.Value, IsBold.Checked ? FontStyle.Bold : FontStyle.Regular))
       {
-        var size = e.Graphics.MeasureString(TextBox.Text, font);
+        var output = from l in TextBox.Text.Split(SplitStrings, StringSplitOptions.None)
+                     select new { Text = SpaceForEmpty(l), Size = AdjustHeight(e.Graphics.MeasureString(SpaceForEmpty(l), font), -4) };
 
-        var x = 32 - size.Width/2;
-        var y = 32 - size.Height/2;
+        var totalHeight = (output.Select(i => i.Size.Height)).Sum();
+        var y = 32 - totalHeight/2;
 
-        e.Graphics.DrawString(TextBox.Text, font, Brushes.White, x, y);
+        foreach (var item in output)
+        {
+          var x = 32 - item.Size.Width / 2;
+          
+          e.Graphics.DrawString(item.Text, font, Brushes.White, x, y);
+          
+          //debug only
+          //e.Graphics.DrawRectangle(Pens.Red, x, y, item.Size.Width, item.Size.Height);
 
-        //debug, surround with rectangle to see size of text area
-        //e.Graphics.DrawRectangle(Pens.Red, x, y, size.Width, size.Height);
+          y += item.Size.Height - 4;
+        }
       }
+    }
+
+    private SizeF AdjustHeight(SizeF size, int shrinkBy)
+    {
+      size.Height += shrinkBy;
+      return size;
+    }
+
+    private String SpaceForEmpty(string s)
+    {
+      return String.IsNullOrEmpty(s) ? " " : s;
     }
 
     private void SpecChange(object sender, EventArgs e)

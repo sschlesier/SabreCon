@@ -36,6 +36,7 @@
       this.Size = new System.Windows.Forms.NumericUpDown();
       this.Icon = new System.Windows.Forms.Panel();
       this.IsBold = new System.Windows.Forms.CheckBox();
+      this.Save = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.Size)).BeginInit();
       this.SuspendLayout();
       // 
@@ -48,7 +49,7 @@
       this.label1.TabIndex = 0;
       this.label1.Text = "Text";
       // 
-      // TextBox
+      // IconText
       // 
       this.IconText.Location = new System.Drawing.Point(16, 29);
       this.IconText.Multiline = true;
@@ -123,11 +124,22 @@
       this.IsBold.UseVisualStyleBackColor = true;
       this.IsBold.CheckedChanged += new System.EventHandler(this.SpecChange);
       // 
+      // Save
+      // 
+      this.Save.Location = new System.Drawing.Point(211, 135);
+      this.Save.Name = "Save";
+      this.Save.Size = new System.Drawing.Size(75, 23);
+      this.Save.TabIndex = 8;
+      this.Save.Text = "&Save As...";
+      this.Save.UseVisualStyleBackColor = true;
+      this.Save.Click += new System.EventHandler(this.SaveClick);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(399, 170);
+      this.Controls.Add(this.Save);
       this.Controls.Add(this.IsBold);
       this.Controls.Add(this.Icon);
       this.Controls.Add(this.Size);
@@ -155,6 +167,7 @@
     private System.Windows.Forms.NumericUpDown Size;
     private System.Windows.Forms.Panel Icon;
     private System.Windows.Forms.CheckBox IsBold;
+    private System.Windows.Forms.Button Save;
   }
 }
 
